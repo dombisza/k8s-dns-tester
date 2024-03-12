@@ -8,13 +8,13 @@ host="ecs.eu-de.otc.t-systems.com"
 start_time=$(date +'%Y-%m-%dT%H:%M:%SZ')
 start_timestamp=$(date +"%s")
 while [ $counter -lt 1000 ]; do
-    if nslookup $host >/dev/null 2>&1; then
-      success=$(($success + 1))
-    else
-      failed=$(($failed + 1))
-    fi
-      counter=$(($counter + 1))
-    sleep 0.5
+  if nslookup $host >/dev/null 2>&1; then
+    success=$(($success + 1))
+  else
+    failed=$(($failed + 1))
+  fi
+    counter=$(($counter + 1))
+  sleep 0.5
 done
 end_time=$(date +'%Y-%m-%dT%H:%M:%SZ')
 end_timestamp=$(date +"%s")

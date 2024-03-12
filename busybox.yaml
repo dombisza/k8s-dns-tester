@@ -5,13 +5,13 @@ metadata:
 spec:
   containers:
   - name: busybox
-    image: busybox
-    command: ["/bin/sh", "-c", "while true; do /config/test-dns.sh; done"]
+    image: node:18-alpine 
+    command: ["/bin/sh", "-c", "while true; do nodejs /config/test-dns.js; done"]
     volumeMounts:
     - name: config-volume
       mountPath: /config
   volumes:
   - name: config-volume
     configMap:
-      name: query-script
+      name: query-script-js
       defaultMode: 0777
